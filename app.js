@@ -29,7 +29,10 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
   var item = req.body.newTask;
-  items.push(item);
+  if(item !== "") {
+    items.push(item);
+  }
+
 
   res.redirect("/");
 })

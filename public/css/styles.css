@@ -9,6 +9,7 @@ html {
   background-color: var(--non-important-element-color);
   background-image: -webkit-linear-gradient(65deg, var(--primary-color) 50%, var(--non-important-element-color) 50%);
   min-height: 1000px;
+  overflow: auto;
   font-family: 'Montserrat', sans-serif;
 }
 
