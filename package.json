@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "TodoList project with NodeJS",
   "main": "app.js",
+  "scripts": {
+    "test": "echo npm run"
+  },
   "author": "Jesús Gutiérrez",
   "license": "ISC",
   "dependencies": {
