@@ -1,46 +1,37 @@
+//setup area
 const express = require("express");
 const bodyParser = require("body-parser");
 const port = 3000;
 
 const app = express();
 
+var items = [];
+
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
+
+//functionality area
 
 app.get("/", function (req, res) {
   var today = new Date();
-  var currentDay = today.getDate();
-  var day = "";
 
-  switch (currentDay) {
-    case 0:
-      day = "Sunday";
-      break;
-    case 1:
-      day = "Monday";
-      break;
-    case 2:
-      day = "Thuesday";
-      break;
-    case 3:
-      day = "Wednesday";
-      break;
-    case 4:
-      day = "Thursday";
-      break;
-    case 5:
-      day = "Friday";
-      break;
-    case 6:
-      day = "Saturday";
-      break;
-    default:
-      console.log("An error ocurred. Invalid day");
-      break;
-  }
+  var options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+  };
 
-  res.render("list",{
-    kindOfDay: day
-  });
+  var day = today.toLocaleDateString("es-CR", options);
+
+  res.render("list",{kindOfDay: day, newListItems: items});
+  })
+
+app.post("/", function (req, res) {
+  var item = req.body.newTask;
+  items.push(item);
+
+  res.redirect("/");
 })
 
 app.listen(port, function () {

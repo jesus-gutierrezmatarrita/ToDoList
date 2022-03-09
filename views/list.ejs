@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>To Do List</title>
-  </head>
-  <body>
-    <% if(kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
-      <h1 style="color: purple"><%= kindOfDay %> ToDo List</h1>
-    <% } else { %>
-      <h1 style="color: blue"><%= kindOfDay %> ToDo List</h1>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>To Do List</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="box" id="heading">
+    <h1> <%= kindOfDay %> </h1>
+  </div>
+
+  <div class="box">
+    <% if (newListItems.length == 0) { %>
+    <h2>¡Yey, no hay más tareas!</h2>
+    <%} else { %>
+    <% for(var i=0; i<newListItems.length; i++) { %>
+    <div class="item">
+      <input type="checkbox" />
+      <p> <%= newListItems[i] %> </p>
+    </div>
+
     <% } %>
+    <%}%>
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newTask" placeholder="What is your next task?" autocomplete="off"/>
+        <button type="submit" name="addTask">+</button>
+      </form>
+    </div>
+
+
+
 
   </body>
 </html>
