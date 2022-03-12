@@ -8,8 +8,7 @@
 html {
   background-color: var(--non-important-element-color);
   background-image: -webkit-linear-gradient(65deg, var(--primary-color) 50%, var(--non-important-element-color) 50%);
-  min-height: 1000px;
-  overflow: auto;
+  min-height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -108,7 +107,14 @@ button:hover {
 }
 
 footer {
-  color: white;
-  color: rgba(0, 0, 0, 0.5);
+  max-width: 50%;
+  margin: 50px auto;
+  border-radius: 5px;
+  background-color: var(--primary-color)
   text-align: center;
+}
+
+.footer-text {
+  color: white;
+  font-size: 1rem;
 }
