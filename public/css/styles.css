@@ -2,12 +2,12 @@
   --primary-color: #673AB7;
   --accent-color: #FF9800;
   --non-important-element-color: #E4E9FD;
-  --item-color:#00204a;
+  --item-color: #00204a;
 }
 
 html {
   background-color: var(--non-important-element-color);
-  background-image: -webkit-linear-gradient(65deg, var(--primary-color) 50%, var(--non-important-element-color) 50%);
+  /*background-image: -webkit-linear-gradient(65deg, var(--primary-color) 50%, var(--non-important-element-color) 50%);*/
   min-height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
@@ -107,10 +107,11 @@ button:hover {
 }
 
 footer {
-  max-width: 50%;
-  margin: 50px auto;
-  border-radius: 5px;
-  background-color: var(--primary-color)
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-color);
   text-align: center;
 }
 
