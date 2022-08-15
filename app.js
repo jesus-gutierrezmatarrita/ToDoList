@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 //functionality area
 
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
 
   let day = new Date();
 
@@ -36,14 +36,14 @@ app.get("/", function(req, res) {
   });
 });
 
-app.get("/work", function(req, res) {
+app.get("/work", (req, res) => {
   res.render("list", {
     listTitle: "Work List",
     newListItems: workItems
   });
 });
 
-app.post("/", function(req, res) {
+app.post("/", (req, res) => {
   let item = req.body.newTask;
   if (item !== "") {
     items.push(item);
@@ -52,16 +52,16 @@ app.post("/", function(req, res) {
   res.redirect("/");
 });
 
-app.post("/work", function(req,res) {
+app.post("/work", (req,res) => {
   let item = req.body.newTask;
   workItems.push(item);
   res.redirect("/work");
 });
 
-app.get("/about", function(req, res) {
+app.get("/about", (req, res) => {
   res.render("about");
 })
 
-app.listen(port, function() {
-  console.log("Server running on port 3000");
+app.listen(process.env.PORT || port, () => {
+  console.log("The server is running");
 });

@@ -13,5 +13,13 @@
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesus-gutierrezmatarrita/ToDoList.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jesus-gutierrezmatarrita/ToDoList/issues"
+  },
+  "homepage": "https://github.com/jesus-gutierrezmatarrita/ToDoList#readme"
 }
