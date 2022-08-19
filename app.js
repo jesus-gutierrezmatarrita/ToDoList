@@ -20,7 +20,7 @@ const options = {
 
 day = day.toLocaleDateString("es-CR", options);
 
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect("mongodb+srv://admin-jesus:MUtJz9Z1Myn7pwWJ@cluster0.dxo1n2g.mongodb.net/todolistDB");
 
 const taskSchema = {
   name: String,
@@ -66,9 +66,7 @@ app.post("/", (req, res) => {
   const listName = req.body.listTitle;
   if (item !== "") {
     item.save();
-  }
-
-  if(listName === day) {
+  } else if(listName === day) {
     item.save();
     res.redirect("/");
   } else {
