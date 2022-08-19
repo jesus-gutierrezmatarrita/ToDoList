@@ -1,23 +1,30 @@
 <%- include("header") -%>
   <div class="box" id="heading">
-    <h1> <%= listTitle %> </h1>
+    <h1>
+      <%= listTitle %>
+    </h1>
   </div>
   <div class="box">
-    <% if (newListItems.length == 0) { %>
-    <h2>¡Yey, no hay más tareas!</h2>
+    <% let qty = 0 %>
+    <% newListItems.forEach((task) => { %>
+      <% qty += 1; %>
+    <%})%>
+    <% if (qty==0) { %>
+      <h2>¡Yey, no hay más tareas!</h2>
     <%} else { %>
-    <% for(var i=0; i<newListItems.length; i++) { %>
-    <div class="item">
-      <input type="checkbox" />
-      <p> <%= newListItems[i] %> </p>
-    </div>
-
-    <% } %>
+      <h2>Cantidad de tareas pendientes: <%= qty %></h2>
+      <% newListItems.forEach((task) => { %>
+        <div class="item">
+          <input type="checkbox" />
+          <p>
+            <%= task.name %>
+          </p>
+        </div>
+      <% }); %>
     <%}%>
-
-      <form class="item" action="/" method="post">
-        <input type="text" name="newTask" placeholder="¿Cuál es tu siguiente tarea?" autocomplete="off"/>
-        <button type="submit" name="addTask">+</button>
-      </form>
-    </div>
+    <form class="item" action="/" method="post">
+      <input type="text" name="newTask" placeholder="¿Cuál es tu siguiente tarea?" autocomplete="off" />
+      <button type="submit" name="addTask">+</button>
+    </form>
+  </div>
 <%- include("footer") -%>
